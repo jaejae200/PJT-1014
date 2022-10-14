@@ -2,4 +2,27 @@
 
 {% block body %}
   <h1>인덱스 페이지</h1>
+  <div class="py-5 text-center">
+    <h1>회원 목록</h1>
+  </div>
+  <table class="table table-striped border-dark border-opacity-25">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NAME</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+        <tr>
+          <th scope="row">{{ user.pk }}</td>
+          <td>
+            <a href="{% url 'accounts:detail' user.pk %}">{{ user.username }}</a>
+          </td>
+          <td>{{ user.email }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
 {% endblock %}
