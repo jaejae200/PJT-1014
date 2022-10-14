@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import ReviewForm
+from .models import Review
 
 # Create your views here.
 
@@ -17,3 +18,11 @@ def create(request):
         'form': form
     }
     return render(request, 'reviews/form.html', context=context)
+
+def index(request):
+    reviews = Review.objects.order_by('-pk')
+    
+    context = {
+        'reviews': reviews
+    }
+    return render(request, 'reviews/index.html', context)
