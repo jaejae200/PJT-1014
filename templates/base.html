@@ -25,7 +25,7 @@
             </li>
             {% if request.user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link" href="#">작성</a>
+                <a class="nav-link" href="{% url 'reviews:create' %}">작성</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link fw-bold" href="{% url 'accounts:detail' user.pk %}">{{ user.username }}</a>
