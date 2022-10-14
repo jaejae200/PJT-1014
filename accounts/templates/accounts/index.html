@@ -29,19 +29,5 @@
       <a href="{% url 'accounts:logout' %}" class="btn btn-danger">로그아웃</a>
       <a href="{% url 'accounts:detail' user.pk %}" class="btn btn-primary">내 정보</a>
     </div>
-  {% else %}
-    <div class="d-flex justify-content-center align-items-center flex-column" style="max-width: 1980px; height: 1020px;">
-      <div class="py-2 text-center">
-        <div>
-          <h1 class="mb-5">회원 조회 서비스</h1>
-        </div>
-        <div>
-          <a href="{% url 'accounts:signup' %}" class="btn btn-primary">회원가입</a>
-        </div>
-      </div>
-      <div class="py-2">
-        <a href="{% url 'accounts:login' %}" class="btn btn-primary">로그인</a>
-      </div>
-    </div>
   {% endif %}
 {% endblock body %}
