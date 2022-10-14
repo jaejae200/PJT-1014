@@ -5,12 +5,16 @@
     <div class="card shadow-sm p-3 mb-5 bg-body rounded">
       <div class="card-body">
         <h1>{{ user.username }}님의 프로필</h1>
+        <p class="mt-3">이메일 :
+          {{ user.email }}</p>
+        <p class="mt-3">이름 :
+          {{ user.full_name }}</p>
       </div>
-      {% comment %} {% if request.user == user %}
+      {% if request.user == user %}
         <div class="text-end">
           <a href="{% url 'accounts:update' %}" class="btn btn-outline-info">내 정보 수정</a>
         </div>
-      {% endif %} {% endcomment %}
+      {% endif %}
     </div>
     <div class="d-grid gap-2">
       <a href="{% url 'accounts:index' %}" class="btn btn-primary">메인으로</a>
