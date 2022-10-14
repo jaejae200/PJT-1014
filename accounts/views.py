@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth import get_user_model
 from django.contrib.auth import login as auth_login
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import CustomUserCreationForm
@@ -7,7 +8,13 @@ from .forms import CustomUserCreationForm
 # Create your views here.
 
 def index(request):
-    return render(request, 'accounts/index.html')
+    users = get_user_model().objects.order_by('pk')
+
+    context = {
+        'users' : users,
+    }
+
+    return render(request, 'accounts/index.html', context)
 
 def signup(request):
     if request.method == 'POST':
